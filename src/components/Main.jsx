@@ -25,6 +25,7 @@ const Main = () => {
 
   const checkClick = () => {
     let value = inputRef.current.value
+    if (success) return
     if (score <= 0) return
     if (value === null) return 
     if (preNumber === value) return
