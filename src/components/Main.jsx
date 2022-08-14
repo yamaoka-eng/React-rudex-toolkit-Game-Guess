@@ -14,6 +14,13 @@ const Main = () => {
 
   const inputRef = useRef()
 
+  useEffect(()=>{
+    if (success === null) {
+      inputRef.current.value = ''
+      preNumber = null
+    }
+  }, [success])
+
   const judge = () =>{
     let value = inputRef.current.value
     if (value > number) {
@@ -27,7 +34,7 @@ const Main = () => {
     let value = inputRef.current.value
     if (success) return
     if (score <= 0) return
-    if (value === null) return 
+    if (value === '') return 
     if (preNumber === value) return
     dispatch(guess({ number: value }))
     preNumber = value
